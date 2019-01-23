@@ -1,0 +1,15 @@
+<div *ngIf="restaurant">
+
+<h2>{{restaurant.name }} Details </h2>
+
+<div><span> id: </span> {{restaurant.id}} </div>
+
+<div>
+	<label> name:
+		<input [(ngModel)] = "restaurant.name" placeholder = "restaurant.name"/> 
+	</label>
+</div>
+
+<button (click) = "goBack()">go back</button>
+<button (click) = "save()">save</button>
+</div>
