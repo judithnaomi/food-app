@@ -9,7 +9,6 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 
 import { Restaurant } from './restaurant';
-import { RESTAURANTS } from './mock-restaurants';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

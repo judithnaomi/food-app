@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  apiBaseUrl: "https://shoppingloopback.eu-de.mybluemix.net/v2"
 };
+
+

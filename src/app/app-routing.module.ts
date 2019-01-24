@@ -10,13 +10,17 @@ import { RestaurantsComponent } from './restaurants/restaurants.component';
 
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 
+import { OrderComponent } from './order/order.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
   { path: 'products', component: ProductsComponent },
   { path: 'product_detail/:id', component: ProductDetailComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'restaurants', component: RestaurantsComponent },
-  { path: 'restaurant_detail/:id', component: RestaurantDetailComponent }
+  { path: 'restaurant_detail/:id', component: RestaurantDetailComponent },
+  { path: 'order',
+  component: OrderComponent}
 ];
 
 

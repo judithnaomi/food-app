@@ -7,12 +7,14 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 
 import { Product } from './product';
-import { PRODUCTS } from './mock-products';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+interface DeleteResult{
+  count:number;
+}
 
 @Injectable()
 export class ProductService {
@@ -54,7 +56,21 @@ addProduct (product:Product): Observable<Product> {
 	  );
 }
 
-deleteProduct (product: Product | number): Observable<Product> {
+deleteProduct(product:Product):Observable<any>{
+    return this.http.delete<DeleteResult>(this.productsUrl+"/"+product.id,httpOptions).pipe(
+      tap((deleteResult:DeleteResult)=>console.log('Count of deleted products: '+deleteResult.count)),
+      catchError(this.handleError<Product>('deleteProduct'))
+    );
+  }
+
+
+/**deleteProduct(){
+this.productService.deleteProduct(this.product).subscribe(
+      data=>
+        this.productService.triggerRefresh(true)
+    );*/
+
+/**deleteProduct (product: Product | number): Observable<Product> {
   const id = typeof product === 'number' ? product: product.id; 
   const url = '${this.productsUrl}/${id}';
 
@@ -62,7 +78,7 @@ deleteProduct (product: Product | number): Observable<Product> {
     tap(_ => this.log('deleted product id = ${id}')),
     catchError(this.handleError<Product>('deleteProduct'))
     );
-}
+}*/
   
   /** Log a HeroService message with the MessageService */
   private log(message: string) {

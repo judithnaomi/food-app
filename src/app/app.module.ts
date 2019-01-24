@@ -9,6 +9,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
 import { MessageService } from './message.service';
 import { ProductService } from './product.service';
 import { RestaurantService } from './restaurant.service';
+import { OrderService } from './order.service';
 
 import { AppComponent } from './app.component';
 
@@ -19,6 +20,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { ProductSearchComponent } from './product-search/product-search.componen
     DashboardComponent,
     RestaurantsComponent,
     RestaurantDetailComponent,
-    ProductSearchComponent
+    ProductSearchComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,7 @@ HttpClientInMemoryWebApiModule.forRoot(
   InMemoryDataService, { dataEncapsulation: false }
 )
   ],
-  providers: [ProductService, MessageService, RestaurantService],
+  providers: [ProductService, MessageService, RestaurantService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
